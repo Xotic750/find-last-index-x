@@ -23,7 +23,7 @@
  * </a>
  *
  * ES6 findIndex module.
- * @version 1.0.0
+ * @version 1.0.1
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -44,8 +44,8 @@
   'use strict';
 
   var ES = require('es-abstract/es6'),
-    isPrimitive = require('is-primitive'),
-    isString = require('is-string');
+    isString = require('is-string'),
+    assertIsCallable = require('assert-is-callable-x');
   /**
    * Like `findIndex`, this method returns an index in the array, if an element
    * in the array satisfies the provided testing function, except it is peformed
@@ -77,12 +77,7 @@
   module.exports =  function (array, callback, thisArg) {
     var object = ES.ToObject(array),
       index, isStr, item;
-    if (!ES.IsCallable(callback)) {
-      throw new TypeError(
-        (isPrimitive(callback) ? String(callback) : '#<Object>') +
-        ' is not a function'
-      );
-    }
+    assertIsCallable(callback);
     isStr = isString(array);
     index = ES.ToLength(object.length) - 1;
     while (index >= 0) {
