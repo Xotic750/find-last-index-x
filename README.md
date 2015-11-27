@@ -24,7 +24,7 @@ alt="npm version" height="18">
 
 ES6 findIndex module.
 
-**Version**: 1.0.1  
+**Version**: 1.0.2  
 **Author:** Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
@@ -40,6 +40,13 @@ in reverse. Otherwise -1 is returned.
 
 - <code>TypeError</code> If array is `null` or `undefined`-
 - <code>TypeError</code> If `callback` is not a function.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| array | <code>Array</code> | The array to search. |
+| callback | <code>function</code> | Function to execute on each value in the array,  taking three arguments: `element`, `index` and `array`. |
+| [thisArg] | <code>\*</code> | Object to use as `this` when executing `callback`. |
 
 **Example**  
 ```js

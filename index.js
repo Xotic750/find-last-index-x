@@ -23,7 +23,7 @@
  * </a>
  *
  * ES6 findIndex module.
- * @version 1.0.1
+ * @version 1.0.2
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
