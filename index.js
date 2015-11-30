@@ -23,7 +23,7 @@
  * </a>
  *
  * ES6 findIndex module.
- * @version 1.0.2
+ * @version 1.0.3
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -74,15 +74,16 @@
    * console.log(findLastIndex([4, 6, 8, 12, 14], isPrime)); // -1, not found
    * console.log(findLastIndex([4, 6, 7, 12, 13], isPrime)); // 4
    */
-  module.exports =  function (array, callback, thisArg) {
+  module.exports =  function findLastIndex(array, callback, thisArg) {
     var object = ES.ToObject(array),
+      pCharAt = String.prototype.charAt,
       index, isStr, item;
     assertIsCallable(callback);
     isStr = isString(array);
     index = ES.ToLength(object.length) - 1;
     while (index >= 0) {
-      item = isStr ? object.charAt(index) : object[index];
-      if (callback.call(thisArg, item, index, object)) {
+      item = isStr ? ES.Call(pCharAt, object, [index]) : object[index];
+      if (ES.Call(callback, thisArg, [item, index, object])) {
         return index;
       }
       index -= 1;

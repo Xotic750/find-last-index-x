@@ -1,6 +1,6 @@
 {
     "name": "find-last-index-x",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "ES6 findLastIndex module.",
     "homepage": "https://github.com/Xotic750/find-last-index-x",
     "author": {
@@ -31,7 +31,7 @@
     "dependencies": {
       "es-abstract": "^1.4.3",
       "is-string": "^1.0.4",
-      "assert-is-callable-x": "^1.0.1"
+      "assert-is-callable-x": "^1.0.4"
     },
     "devDependencies": {
       "es5-shim": "^4.3.1",
