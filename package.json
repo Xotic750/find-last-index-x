@@ -31,7 +31,7 @@
   "dependencies": {
     "es-abstract": "^1.5.0",
     "is-string": "^1.0.4",
-    "assert-is-callable-x": "^1.0.6"
+    "assert-is-callable-x": "^1.0.7"
   },
   "devDependencies": {
     "es5-shim": "^4.4.1",
