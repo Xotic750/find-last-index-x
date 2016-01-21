@@ -41,7 +41,7 @@
  * `es6.shim.js` provides compatibility shims so that legacy JavaScript engines
  * behave as closely as possible to ECMAScript 6 (Harmony).
  *
- * @version 1.0.7
+ * @version 1.0.8
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -54,16 +54,47 @@
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
   es3:true, esnext:true, plusplus:true, maxparams:3, maxdepth:2,
-  maxstatements:12, maxcomplexity:6 */
+  maxstatements:14, maxcomplexity:4 */
 
 /*global require, module */
 
 ;(function () {
   'use strict';
 
-  var ES = require('es-abstract/es6'),
-    isString = require('is-string'),
-    assertIsCallable = require('assert-is-callable-x');
+  var toObject = require('to-object-x');
+  var isString = require('is-string');
+  var assertIsCallable = require('assert-is-callable-x');
+  var pCharAt = String.prototype.charAt;
+  var $Number = Number;
+  var $isNaN = Number.isNaN;
+  var $isFinite = Number.isFinite;
+  var $sign = Math.sign;
+  var $floor = Math.floor;
+  var $abs = Math.abs;
+  var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER;
+
+  function toInteger(value) {
+    var number = $Number(value);
+    if ($isNaN(number)) {
+      return 0;
+    }
+    if (number === 0 || !$isFinite(number)) {
+      return number;
+    }
+    return $sign(number) * $floor($abs(number));
+  }
+
+  function toLength(argument) {
+    var len = toInteger(argument);
+    if (len <= 0) {
+      return 0;
+    } // includes converting -0 to +0
+    if (len > MAX_SAFE_INTEGER) {
+      return MAX_SAFE_INTEGER;
+    }
+    return len;
+  }
+
   /**
    * Like `findIndex`, this method returns an index in the array, if an element
    * in the array satisfies the provided testing function, except it is peformed
@@ -93,15 +124,13 @@
    * console.log(findLastIndex([4, 6, 7, 12, 13], isPrime)); // 4
    */
   module.exports =  function findLastIndex(array, callback, thisArg) {
-    var object = ES.ToObject(array),
-      pCharAt = String.prototype.charAt,
-      index, isStr, item;
+    var object = toObject(array);
     assertIsCallable(callback);
-    isStr = isString(array);
-    index = ES.ToLength(object.length) - 1;
-    while (index >= 0) {
-      item = isStr ? ES.Call(pCharAt, object, [index]) : object[index];
-      if (ES.Call(callback, thisArg, [item, index, object])) {
+    var isStr = isString(array);
+    var index = toLength(object.length) - 1;
+    while (index > -1) {
+      var item = isStr ? pCharAt.call(object, index) : object[index];
+      if (callback.call(thisArg, item, index, object)) {
         return index;
       }
       index -= 1;
