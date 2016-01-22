@@ -1,6 +1,6 @@
 {
   "name": "find-last-index-x",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "ES6 findLastIndex module.",
   "homepage": "https://github.com/Xotic750/find-last-index-x",
   "author": {
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "to-object-x": "^1.0.0",
+    "to-length-x": "^1.0.0",
     "is-string": "^1.0.4",
     "assert-is-callable-x": "^1.0.10"
   },

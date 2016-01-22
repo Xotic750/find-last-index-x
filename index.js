@@ -41,7 +41,7 @@
  * `es6.shim.js` provides compatibility shims so that legacy JavaScript engines
  * behave as closely as possible to ECMAScript 6 (Harmony).
  *
- * @version 1.0.8
+ * @version 1.0.9
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -54,46 +54,18 @@
   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
   es3:true, esnext:true, plusplus:true, maxparams:3, maxdepth:2,
-  maxstatements:14, maxcomplexity:4 */
+  maxstatements:10, maxcomplexity:4 */
 
 /*global require, module */
 
 ;(function () {
   'use strict';
 
+  var toLength = require('to-length-x');
   var toObject = require('to-object-x');
   var isString = require('is-string');
   var assertIsCallable = require('assert-is-callable-x');
   var pCharAt = String.prototype.charAt;
-  var $Number = Number;
-  var $isNaN = Number.isNaN;
-  var $isFinite = Number.isFinite;
-  var $sign = Math.sign;
-  var $floor = Math.floor;
-  var $abs = Math.abs;
-  var MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER;
-
-  function toInteger(value) {
-    var number = $Number(value);
-    if ($isNaN(number)) {
-      return 0;
-    }
-    if (number === 0 || !$isFinite(number)) {
-      return number;
-    }
-    return $sign(number) * $floor($abs(number));
-  }
-
-  function toLength(argument) {
-    var len = toInteger(argument);
-    if (len <= 0) {
-      return 0;
-    } // includes converting -0 to +0
-    if (len > MAX_SAFE_INTEGER) {
-      return MAX_SAFE_INTEGER;
-    }
-    return len;
-  }
 
   /**
    * Like `findIndex`, this method returns an index in the array, if an element
@@ -108,7 +80,7 @@
    * @param {*} [thisArg] Object to use as `this` when executing `callback`.
    * @return {number} Returns index of positively tested element, otherwise -1.
    * @example
-   * var findLastIndex = require('find-index.x');
+   * var findLastIndex = require('find-index-x');
    *
    * function isPrime(element, index, array) {
    *   var start = 2;
@@ -123,7 +95,7 @@
    * console.log(findLastIndex([4, 6, 8, 12, 14], isPrime)); // -1, not found
    * console.log(findLastIndex([4, 6, 7, 12, 13], isPrime)); // 4
    */
-  module.exports =  function findLastIndex(array, callback, thisArg) {
+  module.exports = function findLastIndex(array, callback, thisArg) {
     var object = toObject(array);
     assertIsCallable(callback);
     var isStr = isString(array);
