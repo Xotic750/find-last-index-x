@@ -1,15 +1,19 @@
-/*jslint maxlen:80, es6:true, white:true */
+/* jslint maxlen:80, es6:true, white:true */
 
-/*jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
-  freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
-  nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
-  es3:true, esnext:true, plusplus:true, maxparams:3, maxdepth:2,
-  maxstatements:11, maxcomplexity:3 */
+/* jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
+   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
+   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
+   es3:false, esnext:true, plusplus:true, maxparams:1, maxdepth:2,
+   maxstatements:12, maxcomplexity:4 */
 
-/*global JSON:true, expect, module, jasmine, require, describe, it,
-  returnExports */
+/* eslint strict: 1, max-lines: 1, symbol-description: 1, max-nested-callbacks: 1,
+   max-statements: 1 */
 
-(function () {
+/* global JSON:true, expect, module, jasmine, require, describe, it,
+   returnExports */
+
+;(function () { // eslint-disable-line no-extra-semi
+
   'use strict';
 
   var findLastIndex;
@@ -21,6 +25,13 @@
     }
     require('json3').runInContext(null, JSON);
     require('es6-shim');
+    var es7 = require('es7-shim');
+    Object.keys(es7).forEach(function (key) {
+      var obj = es7[key];
+      if (typeof obj.shim === 'function') {
+        obj.shim();
+      }
+    });
     findLastIndex = require('../../index.js');
   } else {
     findLastIndex = returnExports;
@@ -66,6 +77,7 @@
     it('should work with the context argument', function () {
       var context = {};
       findLastIndex([1], function () {
+        /* eslint no-invalid-this: 1 */
         expect(this).toBe(context);
       }, context);
     });
@@ -79,22 +91,21 @@
     });
 
     it('should work with an array-like with negative length', function () {
-      var obj = { 0: 1, 1: 2, 2: 3, 3: 2, length: -4 },
-        foundIndex = findLastIndex(obj, function () {
-          throw new Error('should not reach here');
-        });
+      var obj = { 0: 1, 1: 2, 2: 3, 3: 2, length: -4 };
+      var foundIndex = findLastIndex(obj, function () {
+        throw new Error('should not reach here');
+      });
       expect(foundIndex).toBe(-1);
     });
 
     it('should work with a sparse array', function () {
-      var obj = [],
-        seen = [],
-        foundIndex;
+      var obj = [];
+      var seen = [];
       obj.length = 3;
       obj[0] = undefined;
       obj[2] = 1;
       expect(1 in obj).toBe(false);
-      foundIndex = findLastIndex(obj, function (item, idx) {
+      var foundIndex = findLastIndex(obj, function (item, idx) {
         seen.push([idx, item]);
         return item === undefined && idx === 0;
       });
@@ -103,12 +114,12 @@
     });
 
     it('should work with a sparse array-like object', function () {
-      var obj = { 0: 1, 2: undefined, length: 3.2 },
-        seen = [],
-        foundIndex = findLastIndex(obj, function (item, idx) {
-          seen.push([idx, item]);
-          return false;
-        });
+      var obj = { 0: 1, 2: undefined, length: 3.2 };
+      var seen = [];
+      var foundIndex = findLastIndex(obj, function (item, idx) {
+        seen.push([idx, item]);
+        return false;
+      });
       expect(foundIndex).toBe(-1);
       expect(seen).toEqual([[2, undefined], [1, undefined], [0, 1]]);
     });
