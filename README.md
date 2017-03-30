@@ -23,11 +23,12 @@ alt="devDependency status" height="18"/>
 alt="npm version" height="18">
 </a>
 
-ES6 findIndex module.
+This method returns the index of the first element in the array that satisfies the
+provided testing function. Otherwise -1 is returned.  The array is searched backwards.
 
 Requires ES3 or above.
 
-**Version**: 1.2.0  
+**Version**: 1.3.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
