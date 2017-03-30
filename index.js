@@ -27,7 +27,7 @@
  *
  * Requires ES3 or above.
  *
- * @version 1.3.0
+ * @version 1.3.1
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -78,7 +78,6 @@
   module.exports = function findLastIndex(array, callback) {
     var object = toObject(array);
     assertIsCallable(callback);
-    var isStr = isString(object);
     var index = toLength(object.length) - 1;
     if (index < 0) {
       return -1;
@@ -87,6 +86,7 @@
     if (arguments.length > 2) {
       thisArg = arguments[2];
     }
+    var isStr = isString(object);
     while (index > -1) {
       var item = isStr ? object.charAt(index) : object[index];
       if (callback.call(thisArg, item, index, object)) {
