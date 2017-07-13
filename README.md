@@ -1,34 +1,29 @@
-<a name="module_find-last-index-x"></a>
-
-## find-last-index-x
 <a href="https://travis-ci.org/Xotic750/find-last-index-x"
-title="Travis status">
+   title="Travis status">
 <img
-src="https://travis-ci.org/Xotic750/find-last-index-x.svg?branch=master"
-alt="Travis status" height="18">
+   src="https://travis-ci.org/Xotic750/find-last-index-x.svg?branch=master"
+   alt="Travis status" height="18"/>
 </a>
 <a href="https://david-dm.org/Xotic750/find-last-index-x"
-title="Dependency status">
+   title="Dependency status">
 <img src="https://david-dm.org/Xotic750/find-last-index-x.svg"
-alt="Dependency status" height="18"/>
+   alt="Dependency status" height="18"/>
 </a>
-<a
-href="https://david-dm.org/Xotic750/find-last-index-x#info=devDependencies"
-title="devDependency status">
+<a href="https://david-dm.org/Xotic750/find-last-index-x#info=devDependencies"
+   title="devDependency status">
 <img src="https://david-dm.org/Xotic750/find-last-index-x/dev-status.svg"
-alt="devDependency status" height="18"/>
+   alt="devDependency status" height="18"/>
 </a>
 <a href="https://badge.fury.io/js/find-last-index-x" title="npm version">
 <img src="https://badge.fury.io/js/find-last-index-x.svg"
-alt="npm version" height="18">
+   alt="npm version" height="18"/>
 </a>
+<a name="module_find-last-index-x"></a>
 
-This method returns the index of the first element in the array that satisfies the
-provided testing function. Otherwise -1 is returned.  The array is searched backwards.
+## find-last-index-x
+Search an array from the end and return the matched index.
 
-Requires ES3 or above.
-
-**Version**: 1.3.1  
+**Version**: 1.4.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
