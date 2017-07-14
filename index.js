@@ -1,6 +1,6 @@
 /**
  * @file Search an array from the end and return the matched index.
- * @version 1.4.0
+ * @version 1.5.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -12,7 +12,7 @@
 var toLength = require('to-length-x');
 var toObject = require('to-object-x');
 var isString = require('is-string');
-var assertIsCallable = require('assert-is-callable-x');
+var assertIsFunction = require('assert-is-function-x');
 
 /**
  * Like `findIndex`, this method returns an index in the array, if an element
@@ -44,7 +44,7 @@ var assertIsCallable = require('assert-is-callable-x');
  */
 module.exports = function findLastIndex(array, callback, thisArg) {
   var object = toObject(array);
-  assertIsCallable(callback);
+  assertIsFunction(callback);
   var index = toLength(object.length) - 1;
   if (index < 0) {
     return -1;
