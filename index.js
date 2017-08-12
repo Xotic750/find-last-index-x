@@ -1,6 +1,6 @@
 /**
  * @file Search an array from the end and return the matched index.
- * @version 1.5.0
+ * @version 1.6.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -13,6 +13,7 @@ var toLength = require('to-length-x');
 var toObject = require('to-object-x');
 var isString = require('is-string');
 var assertIsFunction = require('assert-is-function-x');
+var splitString = require('has-boxed-string-x') === false;
 
 /**
  * Like `findIndex`, this method returns an index in the array, if an element
@@ -45,15 +46,14 @@ var assertIsFunction = require('assert-is-function-x');
 module.exports = function findLastIndex(array, callback, thisArg) {
   var object = toObject(array);
   assertIsFunction(callback);
+  var iterable = splitString && isString(object) ? object.split('') : object;
   var index = toLength(object.length) - 1;
   if (index < 0) {
     return -1;
   }
 
-  var isStr = isString(object);
   while (index > -1) {
-    var item = isStr ? object.charAt(index) : object[index];
-    if (callback.call(thisArg, item, index, object)) {
+    if (callback.call(thisArg, iterable[index], index, object)) {
       return index;
     }
 

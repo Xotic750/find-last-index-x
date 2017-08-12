@@ -23,7 +23,7 @@
 ## find-last-index-x
 Search an array from the end and return the matched index.
 
-**Version**: 1.5.0  
+**Version**: 1.6.0  
 **Author**: Xotic750 <Xotic750@gmail.com>  
 **License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
 **Copyright**: Xotic750  
