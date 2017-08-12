@@ -1,6 +1,6 @@
 /**
  * @file Search an array from the end and return the matched index.
- * @version 1.6.0
+ * @version 1.7.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -47,7 +47,7 @@ module.exports = function findLastIndex(array, callback, thisArg) {
   var object = toObject(array);
   assertIsFunction(callback);
   var iterable = splitString && isString(object) ? object.split('') : object;
-  var index = toLength(object.length) - 1;
+  var index = toLength(iterable.length) - 1;
   if (index < 0) {
     return -1;
   }

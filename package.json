@@ -1,6 +1,6 @@
 {
   "name": "find-last-index-x",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Search an array from the end and return the matched index.",
   "homepage": "https://github.com/Xotic750/find-last-index-x",
   "author": {
