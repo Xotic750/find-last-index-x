@@ -1,6 +1,6 @@
 /**
  * @file Search an array from the end and return the matched index.
- * @version 1.7.0
+ * @version 2.0.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
