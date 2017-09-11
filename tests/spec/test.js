@@ -21,6 +21,8 @@ if (typeof module === 'object' && module.exports) {
   findLastIndex = returnExports;
 }
 
+var itHasDoc = typeof document !== 'undefined' && document ? it : xit;
+
 describe('findLastIndex', function () {
   var list = [
     5,
@@ -29,6 +31,24 @@ describe('findLastIndex', function () {
     15,
     20
   ];
+
+  it('is a function', function () {
+    expect(typeof findLastIndex).toBe('function');
+  });
+
+  it('should throw when array is null or undefined', function () {
+    expect(function () {
+      findLastIndex();
+    }).toThrow();
+
+    expect(function () {
+      findLastIndex(void 0);
+    }).toThrow();
+
+    expect(function () {
+      findLastIndex(null);
+    }).toThrow();
+  });
 
   it('should find item key by predicate', function () {
     var result = findLastIndex(list, function (item) {
@@ -126,5 +146,31 @@ describe('findLastIndex', function () {
       [1, undefined],
       [0, 1]
     ]);
+  });
+
+  it('should work with arguments', function () {
+    var argObj = (function () {
+      return arguments;
+    }('1'));
+
+    var callback = jasmine.createSpy('callback');
+    findLastIndex(argObj, callback);
+    expect(callback).toHaveBeenCalledWith('1', 0, argObj);
+  });
+
+  it('should work with strings', function () {
+    var callback = jasmine.createSpy('callback');
+    var string = '1';
+    findLastIndex(string, callback);
+    expect(callback).toHaveBeenCalledWith('1', 0, string);
+  });
+
+  itHasDoc('should work wih DOM elements', function () {
+    var fragment = document.createDocumentFragment();
+    var div = document.createElement('div');
+    fragment.appendChild(div);
+    var callback = jasmine.createSpy('callback');
+    findLastIndex(fragment.childNodes, callback);
+    expect(callback).toHaveBeenCalledWith(div, 0, fragment.childNodes);
   });
 });
