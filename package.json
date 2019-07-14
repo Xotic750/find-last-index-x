@@ -50,10 +50,10 @@
   },
   "dependencies": {
     "assert-is-function-x": "^2.1.0",
-    "is-function-x": "^4.0.5",
-    "split-if-boxed-bug-x": "^2.0.2",
-    "to-length-x": "^3.0.0",
-    "to-object-x": "^1.5.0"
+    "is-function-x": "^4.0.6",
+    "split-if-boxed-bug-x": "^2.0.3",
+    "to-length-x": "^4.0.1",
+    "to-object-x": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
