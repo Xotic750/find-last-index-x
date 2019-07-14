@@ -7,12 +7,10 @@
  * @module find-last-index-x
  */
 
-'use strict';
-
-var toLength = require('to-length-x');
-var toObject = require('to-object-x');
-var assertIsFunction = require('assert-is-function-x');
-var splitIfBoxedBug = require('split-if-boxed-bug-x');
+const toLength = require('to-length-x');
+const toObject = require('to-object-x');
+const assertIsFunction = require('assert-is-function-x');
+const splitIfBoxedBug = require('split-if-boxed-bug-x');
 
 /**
  * Like `findIndex`, this method returns an index in the array, if an element
@@ -20,7 +18,7 @@ var splitIfBoxedBug = require('split-if-boxed-bug-x');
  * in reverse. Otherwise -1 is returned.
  *
  * @param {Array} array - The array to search.
- * @throws {TypeError} If array is `null` or `undefined`-
+ * @throws {TypeError} If array is `null` or `undefined`-.
  * @param {Function} callback - Function to execute on each value in the array,
  *  taking three arguments: `element`, `index` and `array`.
  * @throws {TypeError} If `callback` is not a function.
@@ -43,10 +41,11 @@ var splitIfBoxedBug = require('split-if-boxed-bug-x');
  * console.log(findLastIndex([4, 6, 7, 12, 13], isPrime)); // 4
  */
 module.exports = function findLastIndex(array, callback, thisArg) {
-  var object = toObject(array);
+  const object = toObject(array);
   assertIsFunction(callback);
-  var iterable = splitIfBoxedBug(object);
-  var index = toLength(iterable.length) - 1;
+  const iterable = splitIfBoxedBug(object);
+  let index = toLength(iterable.length) - 1;
+
   if (index < 0) {
     return -1;
   }
