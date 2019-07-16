@@ -30,10 +30,12 @@ describe('findLastIndex', function() {
 
   it('is a function', function() {
     expect.assertions(1);
+    expect.assertions(1);
     expect(typeof findLastIndex).toBe('function');
   });
 
   it('should throw when array is null or undefined', function() {
+    expect.assertions(1);
     expect.assertions(1);
     expect(function() {
       findLastIndex();
@@ -50,6 +52,7 @@ describe('findLastIndex', function() {
 
   it('should find item key by predicate', function() {
     expect.assertions(1);
+    expect.assertions(1);
     const result = findLastIndex(list, function(item) {
       return item === 15;
     });
@@ -58,6 +61,7 @@ describe('findLastIndex', function() {
 
   it('should return -1 when nothing matched', function() {
     expect.assertions(1);
+    expect.assertions(1);
     const result = findLastIndex(list, function(item) {
       return item === 'a';
     });
@@ -65,6 +69,7 @@ describe('findLastIndex', function() {
   });
 
   it('should throw TypeError when function was not passed', function() {
+    expect.assertions(1);
     expect.assertions(1);
     expect(function() {
       try {
@@ -78,6 +83,7 @@ describe('findLastIndex', function() {
 
   it('should receive all three parameters', function() {
     expect.assertions(1);
+    expect.assertions(1);
     const foundIndex = findLastIndex(list, function(value, index, arr) {
       expect(list[index]).toBe(value);
       expect(list).toStrictEqual(arr);
@@ -88,6 +94,7 @@ describe('findLastIndex', function() {
   });
 
   it('should work with the context argument', function() {
+    expect.assertions(1);
     expect.assertions(1);
     const context = {};
     findLastIndex(
@@ -101,6 +108,7 @@ describe('findLastIndex', function() {
   });
 
   it('should work with an array-like object', function() {
+    expect.assertions(1);
     expect.assertions(1);
     const obj = {
       0: 1,
@@ -117,6 +125,7 @@ describe('findLastIndex', function() {
 
   it('should work with an array-like with negative length', function() {
     expect.assertions(1);
+    expect.assertions(1);
     const obj = {
       0: 1,
       1: 2,
@@ -131,6 +140,7 @@ describe('findLastIndex', function() {
   });
 
   it('should work with a sparse array', function() {
+    expect.assertions(1);
     expect.assertions(1);
     const obj = [];
     const seen = [];
@@ -149,6 +159,7 @@ describe('findLastIndex', function() {
 
   it('should work with a sparse array-like object', function() {
     expect.assertions(1);
+    expect.assertions(1);
     const obj = {
       0: 1,
       2: undefined,
@@ -166,6 +177,7 @@ describe('findLastIndex', function() {
 
   it('should work with arguments', function() {
     expect.assertions(1);
+    expect.assertions(1);
     const argObj = (function() {
       return arguments;
     })('1');
@@ -176,6 +188,7 @@ describe('findLastIndex', function() {
   });
 
   it('should work with strings', function() {
+    expect.assertions(1);
     expect.assertions(1);
     const callback = jasmine.createSpy('callback');
     const string = '1';
