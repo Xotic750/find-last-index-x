@@ -7,10 +7,11 @@
  * @module find-last-index-x
  */
 
-const toLength = require('to-length-x');
-const toObject = require('to-object-x');
-const assertIsFunction = require('assert-is-function-x');
-const splitIfBoxedBug = require('split-if-boxed-bug-x');
+import toLength from 'to-length-x';
+
+import toObject from 'to-object-x';
+import assertIsFunction from 'assert-is-function-x';
+import splitIfBoxedBug from 'split-if-boxed-bug-x';
 
 /**
  * Like `findIndex`, this method returns an index in the array, if an element
@@ -40,7 +41,7 @@ const splitIfBoxedBug = require('split-if-boxed-bug-x');
  * console.log(findLastIndex([4, 6, 8, 12, 14], isPrime)); // -1, not found
  * console.log(findLastIndex([4, 6, 7, 12, 13], isPrime)); // 4
  */
-module.exports = function findLastIndex(array, callback, thisArg) {
+export default function findLastIndex(array, callback, thisArg) {
   const object = toObject(array);
   assertIsFunction(callback);
   const iterable = splitIfBoxedBug(object);
@@ -59,4 +60,4 @@ module.exports = function findLastIndex(array, callback, thisArg) {
   }
 
   return -1;
-};
+}

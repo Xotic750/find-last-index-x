@@ -49,11 +49,11 @@
     "url": "https://github.com/Xotic750/find-last-index-x/issues"
   },
   "dependencies": {
-    "assert-is-function-x": "^3.0.2",
-    "is-function-x": "^4.0.9",
-    "split-if-boxed-bug-x": "^2.0.5",
-    "to-length-x": "^4.0.4",
-    "to-object-x": "^2.0.2"
+    "assert-is-function-x": "^3.0.3",
+    "is-function-x": "^4.0.10",
+    "split-if-boxed-bug-x": "^2.0.6",
+    "to-length-x": "^4.0.5",
+    "to-object-x": "^2.0.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
