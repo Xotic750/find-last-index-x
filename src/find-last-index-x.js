@@ -17,7 +17,7 @@ import splitIfBoxedBug from 'split-if-boxed-bug-x';
  * @param {*} [thisArg] - Object to use as `this` when executing `callback`.
  * @returns {number} Returns index of positively tested element, otherwise -1.
  */
-export default function findLastIndex(array, callback, thisArg) {
+const findLastIndex = function findLastIndex(array, callback, thisArg) {
   const object = toObject(array);
   assertIsFunction(callback);
   const iterable = splitIfBoxedBug(object);
@@ -36,4 +36,6 @@ export default function findLastIndex(array, callback, thisArg) {
   }
 
   return -1;
-}
+};
+
+export default findLastIndex;
