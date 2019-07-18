@@ -21,15 +21,13 @@
 <a name="module_find-last-index-x"></a>
 
 ## find-last-index-x
+
 Search an array from the end and return the matched index.
 
-**Version**: 2.1.0  
-**Author**: Xotic750 <Xotic750@gmail.com>  
-**License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
-**Copyright**: Xotic750  
 <a name="exp_module_find-last-index-x--module.exports"></a>
 
 ### `module.exports(array, callback, [thisArg])` ⇒ <code>number</code> ⏏
+
 Like `findIndex`, this method returns an index in the array, if an element
 in the array satisfies the provided testing function, except it is peformed
 in reverse. Otherwise -1 is returned.
@@ -41,16 +39,16 @@ in reverse. Otherwise -1 is returned.
 - <code>TypeError</code> If array is `null` or `undefined`-
 - <code>TypeError</code> If `callback` is not a function.
 
+| Param     | Type                  | Description                                                                                             |
+| --------- | --------------------- | ------------------------------------------------------------------------------------------------------- |
+| array     | <code>Array</code>    | The array to search.                                                                                    |
+| callback  | <code>function</code> | Function to execute on each value in the array, taking three arguments: `element`, `index` and `array`. |
+| [thisArg] | <code>\*</code>       | Object to use as `this` when executing `callback`.                                                      |
 
-| Param | Type | Description |
-| --- | --- | --- |
-| array | <code>Array</code> | The array to search. |
-| callback | <code>function</code> | Function to execute on each value in the array,  taking three arguments: `element`, `index` and `array`. |
-| [thisArg] | <code>\*</code> | Object to use as `this` when executing `callback`. |
+**Example**
 
-**Example**  
 ```js
-var findLastIndex = require('find-index-x');
+import findLastIndex from 'find-index-x';
 
 function isPrime(element, index, array) {
   var start = 2;

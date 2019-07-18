@@ -1,4 +1,4 @@
-let findLastIndex;
+import findLastIndex from '../src/find-last-index-x';
 
 const itHasDoc = typeof document !== 'undefined' && document ? it : xit;
 
@@ -11,7 +11,7 @@ describe('findLastIndex', function() {
   });
 
   it('should throw when array is null or undefined', function() {
-    expect.assertions(1);
+    expect.assertions(3);
     expect(function() {
       findLastIndex();
     }).toThrowErrorMatchingSnapshot();
@@ -42,19 +42,19 @@ describe('findLastIndex', function() {
   });
 
   it('should throw TypeError when function was not passed', function() {
-    expect.assertions(1);
+    expect.assertions(2);
     expect(function() {
       try {
         findLastIndex(list);
       } catch (e) {
-        expect(e).toStrictEqual(jasmine.any(TypeError));
+        expect(e).toStrictEqual(expect.any(TypeError));
         throw e;
       }
     }).toThrowErrorMatchingSnapshot();
   });
 
   it('should receive all three parameters', function() {
-    expect.assertions(1);
+    expect.assertions(11);
     const foundIndex = findLastIndex(list, function(value, index, arr) {
       expect(list[index]).toBe(value);
       expect(list).toStrictEqual(arr);
@@ -70,7 +70,7 @@ describe('findLastIndex', function() {
     findLastIndex(
       [1],
       function() {
-        // eslint-disable-next-line no-invalid-this
+        /* eslint-disable-next-line babel/no-invalid-this */
         expect(this).toBe(context);
       },
       context,
@@ -108,7 +108,7 @@ describe('findLastIndex', function() {
   });
 
   it('should work with a sparse array', function() {
-    expect.assertions(1);
+    expect.assertions(3);
     const obj = [];
     const seen = [];
     obj.length = 3;
@@ -125,7 +125,7 @@ describe('findLastIndex', function() {
   });
 
   it('should work with a sparse array-like object', function() {
-    expect.assertions(1);
+    expect.assertions(2);
     const obj = {
       0: 1,
       2: undefined,
@@ -147,14 +147,14 @@ describe('findLastIndex', function() {
       return arguments;
     })('1');
 
-    const callback = jasmine.createSpy('callback');
+    const callback = jest.fn();
     findLastIndex(argObj, callback);
     expect(callback).toHaveBeenCalledWith('1', 0, argObj);
   });
 
   it('should work with strings', function() {
     expect.assertions(1);
-    const callback = jasmine.createSpy('callback');
+    const callback = jest.fn();
     const string = '1';
     findLastIndex(string, callback);
     expect(callback).toHaveBeenCalledWith('1', 0, string);
@@ -164,7 +164,7 @@ describe('findLastIndex', function() {
     const fragment = document.createDocumentFragment();
     const div = document.createElement('div');
     fragment.appendChild(div);
-    const callback = jasmine.createSpy('callback');
+    const callback = jest.fn();
     findLastIndex(fragment.childNodes, callback);
     expect(callback).toHaveBeenCalledWith(div, 0, fragment.childNodes);
   });
