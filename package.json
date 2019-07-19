@@ -1,6 +1,6 @@
 {
   "name": "find-last-index-x",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Search an array from the end and return the matched index.",
   "homepage": "https://github.com/Xotic750/find-last-index-x",
   "author": {
@@ -49,11 +49,11 @@
     "url": "https://github.com/Xotic750/find-last-index-x/issues"
   },
   "dependencies": {
-    "assert-is-function-x": "^3.0.9",
-    "is-function-x": "^4.0.17",
-    "split-if-boxed-bug-x": "^2.0.12",
-    "to-length-x": "^4.0.13",
-    "to-object-x": "^2.0.10"
+    "assert-is-function-x": "^3.0.10",
+    "is-function-x": "^4.0.18",
+    "split-if-boxed-bug-x": "^2.0.13",
+    "to-length-x": "^4.0.14",
+    "to-object-x": "^2.0.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
