@@ -1,6 +1,6 @@
 {
   "name": "find-last-index-x",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "Search an array from the end and return the matched index.",
   "homepage": "https://github.com/Xotic750/find-last-index-x",
   "author": {
@@ -30,7 +30,7 @@
     "build:dev": "npm run build:base --",
     "clean": "rimraf dist && npm run clean:coverage",
     "clean:coverage": "rimraf __tests__/coverage",
-    "lint": "eslint -f 'node_modules/eslint-friendly-formatter' --ext .js .",
+    "lint": "eslint -f 'node_modules/eslint-friendly-formatter' --ext .js,.json .",
     "lint-fix": "npm run lint -- --fix",
     "report": "npm run build -- --env.report",
     "report:dev": "npm run build:dev -- --env.report",
@@ -50,11 +50,11 @@
     "url": "https://github.com/Xotic750/find-last-index-x/issues"
   },
   "dependencies": {
-    "assert-is-function-x": "^3.0.16",
-    "is-function-x": "^4.0.25",
-    "split-if-boxed-bug-x": "^2.0.20",
-    "to-length-x": "^4.0.22",
-    "to-object-x": "^2.0.18"
+    "assert-is-function-x": "^3.0.18",
+    "is-function-x": "^4.0.27",
+    "split-if-boxed-bug-x": "^2.0.22",
+    "to-length-x": "^4.0.25",
+    "to-object-x": "^2.0.20"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -68,14 +68,14 @@
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/runtime": "^7.5.5",
-    "@prorenata/eslint-config-vue": "^1.13.12",
+    "@prorenata/eslint-config-vue": "^1.13.14",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.8",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "babel-plugin-lodash": "^3.3.4",
-    "caniuse-lite": "^1.0.30000985",
+    "caniuse-lite": "^1.0.30000986",
     "chalk": "^2.4.2",
     "concurrently": "^4.1.1",
     "cross-env": "^5.2.0",
@@ -91,7 +91,7 @@
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^22.13.7",
+    "eslint-plugin-jest": "^22.14.0",
     "eslint-plugin-jsdoc": "^15.7.2",
     "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-lodash": "^5.1.0",
