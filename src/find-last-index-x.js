@@ -23,14 +23,8 @@ const findLastIndex = function findLastIndex(array, callback) {
   const object = toObject(array);
   assertIsFunction(callback);
   const iterable = splitIfBoxedBug(object);
-
-  let index = toLength(iterable.length) - 1;
-
-  if (index < 0) {
-    return -1;
-  }
-
   const thisArg = arguments[2]; /* eslint-disable-line prefer-rest-params */
+  let index = toLength(iterable.length) - 1;
   while (index > -1) {
     if (callback.call(thisArg, iterable[index], index, object)) {
       return index;
