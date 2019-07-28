@@ -3,6 +3,8 @@ import toObject from 'to-object-x';
 import assertIsFunction from 'assert-is-function-x';
 import splitIfBoxedBug from 'split-if-boxed-bug-x';
 
+// eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
 /**
  * Like `findIndex`, this method returns an index in the array, if an element
  * in the array satisfies the provided testing function, except it is peformed
@@ -16,16 +18,19 @@ import splitIfBoxedBug from 'split-if-boxed-bug-x';
  * @param {*} [thisArg] - Object to use as `this` when executing `callback`.
  * @returns {number} Returns index of positively tested element, otherwise -1.
  */
-const findLastIndex = function findLastIndex(array, callback, thisArg) {
+// eslint-enable jsdoc/check-param-names
+const findLastIndex = function findLastIndex(array, callback) {
   const object = toObject(array);
   assertIsFunction(callback);
   const iterable = splitIfBoxedBug(object);
+
   let index = toLength(iterable.length) - 1;
 
   if (index < 0) {
     return -1;
   }
 
+  const thisArg = arguments[2]; /* eslint-disable-line prefer-rest-params */
   while (index > -1) {
     if (callback.call(thisArg, iterable[index], index, object)) {
       return index;
