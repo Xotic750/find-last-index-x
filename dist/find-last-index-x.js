@@ -2,11 +2,11 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-07-27T22:13:40.539Z",
+  "date": "2019-07-29T20:15:15.895Z",
   "describe": "",
   "description": "Search an array from the end and return the matched index.",
   "file": "find-last-index-x.js",
-  "hash": "5c7532e9e19a485712ad",
+  "hash": "0ea218e1324cd07c0de2",
   "license": "MIT",
   "version": "3.0.9"
 }
@@ -1596,6 +1596,8 @@ var splitIfBoxedBug = function splitIfBoxedBug(value) {
 
 
 
+ // eslint-disable jsdoc/check-param-names
+// noinspection JSCommentMatchesSignature
 
 /**
  * Like `findIndex`, this method returns an index in the array, if an element
@@ -1610,16 +1612,16 @@ var splitIfBoxedBug = function splitIfBoxedBug(value) {
  * @param {*} [thisArg] - Object to use as `this` when executing `callback`.
  * @returns {number} Returns index of positively tested element, otherwise -1.
  */
+// eslint-enable jsdoc/check-param-names
 
-var find_last_index_x_esm_findLastIndex = function findLastIndex(array, callback, thisArg) {
+var find_last_index_x_esm_findLastIndex = function findLastIndex(array, callback) {
   var object = to_object_x_esm(array);
   assert_is_function_x_esm(callback);
   var iterable = split_if_boxed_bug_x_esm(object);
-  var index = to_length_x_esm(iterable.length) - 1;
+  var thisArg = arguments[2];
+  /* eslint-disable-line prefer-rest-params */
 
-  if (index < 0) {
-    return -1;
-  }
+  var index = to_length_x_esm(iterable.length) - 1;
 
   while (index > -1) {
     if (callback.call(thisArg, iterable[index], index, object)) {
