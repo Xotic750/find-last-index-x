@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-08-13T12:08:22.784Z",
+  "date": "2019-08-13T15:49:17.044Z",
   "describe": "",
   "description": "Search an array from the end and return the matched index.",
   "file": "find-last-index-x.js",
