@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-08-13T15:49:17.044Z",
+  "date": "2019-08-14T16:06:01.483Z",
   "describe": "",
   "description": "Search an array from the end and return the matched index.",
   "file": "find-last-index-x.js",
-  "hash": "442423f9cc5458ad97a7",
+  "hash": "284b97e1ce7dc255a0ea",
   "license": "MIT",
-  "version": "3.0.10"
+  "version": "3.1.0"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -1260,7 +1260,8 @@ var to_primitive_x_esm_toPrimitive = function toPrimitive(input, preferredType) 
  *
  * @type number
  */
-/* harmony default export */ var nan_x_esm = (0 / 0);
+var constantNAN = 0 / 0;
+/* harmony default export */ var nan_x_esm = (constantNAN);
 
 
 // CONCATENATED MODULE: ./node_modules/parse-int-x/dist/parse-int-x.esm.js
@@ -1439,7 +1440,8 @@ var is_nan_x_esm_isNaN = function isNaN(value) {
  *
  * @type number
  */
-/* harmony default export */ var infinity_x_esm = (1 / 0);
+var constantInfinity = 1 / 0;
+/* harmony default export */ var infinity_x_esm = (constantInfinity);
 
 
 // CONCATENATED MODULE: ./node_modules/is-finite-x/dist/is-finite-x.esm.js
@@ -1599,14 +1601,15 @@ var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
  * not. Otherwise returns the `callback`.
  *
  * @param {*} callback - The argument to be tested.
+ * @param {string} [message] - An alternative user message.
  * @throws {TypeError} Throws if `callback` is not a function.
  * @returns {*} Returns `callback` if it is function.
  */
 
-var assert_is_function_x_esm_assertIsFunction = function assertIsFunction(callback) {
+var assert_is_function_x_esm_assertIsFunction = function assertIsFunction(callback, message) {
   if (is_function_x_esm(callback) === false) {
-    var msg = is_primitive_default()(callback) ? to_string_symbols_supported_x_esm(callback) : '#<Object>';
-    throw new TypeError("".concat(msg, " is not a function"));
+    var msg = arguments.length > 1 ? to_string_symbols_supported_x_esm(message) : "".concat(is_primitive_default()(callback) ? to_string_symbols_supported_x_esm(callback) : '#<Object>', " is not a function");
+    throw new TypeError(msg);
   }
 
   return callback;
