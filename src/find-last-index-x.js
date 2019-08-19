@@ -2,6 +2,7 @@ import toLength from 'to-length-x';
 import toObject from 'to-object-x';
 import assertIsFunction from 'assert-is-function-x';
 import splitIfBoxedBug from 'split-if-boxed-bug-x';
+import call from 'simple-call-x';
 
 // eslint-disable jsdoc/check-param-names
 // noinspection JSCommentMatchesSignature
@@ -26,7 +27,7 @@ const findLastIndex = function findLastIndex(array, callback) {
   const thisArg = arguments[2]; /* eslint-disable-line prefer-rest-params */
   let index = toLength(iterable.length) - 1;
   while (index > -1) {
-    if (callback.call(thisArg, iterable[index], index, object)) {
+    if (call(callback, thisArg, [iterable[index], index, object])) {
       return index;
     }
 
