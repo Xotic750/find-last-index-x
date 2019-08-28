@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-08-28T16:06:02.341Z",
+  "date": "2019-08-28T18:11:02.418Z",
   "describe": "",
   "description": "Search an array from the end and return the matched index.",
   "file": "find-last-index-x.js",
   "hash": "b9192b9b3c773d54e3a8",
   "license": "MIT",
-  "version": "3.1.1"
+  "version": "3.1.2"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
