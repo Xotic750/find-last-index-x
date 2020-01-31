@@ -121,7 +121,11 @@ describe('findLastIndex', function() {
       return item === undefined && idx === 0;
     });
     expect(foundIndex).toBe(0);
-    expect(seen).toStrictEqual([[2, 1], [1, undefined], [0, undefined]]);
+    expect(seen).toStrictEqual([
+      [2, 1],
+      [1, undefined],
+      [0, undefined],
+    ]);
   });
 
   it('should work with a sparse array-like object', function() {
@@ -138,7 +142,11 @@ describe('findLastIndex', function() {
       return false;
     });
     expect(foundIndex).toBe(-1);
-    expect(seen).toStrictEqual([[2, undefined], [1, undefined], [0, 1]]);
+    expect(seen).toStrictEqual([
+      [2, undefined],
+      [1, undefined],
+      [0, 1],
+    ]);
   });
 
   it('should work with arguments', function() {
@@ -157,7 +165,7 @@ describe('findLastIndex', function() {
     const callback = jest.fn();
     const string = '1';
     findLastIndex(string, callback);
-    expect(callback).toHaveBeenCalledWith('1', 0, string);
+    expect(callback).toHaveBeenCalledWith('1', 0, Object(string));
   });
 
   itHasDoc('should work wih DOM elements', function() {
